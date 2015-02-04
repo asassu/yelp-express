@@ -55,9 +55,11 @@ app.get('/view/restaurant/:business_id', function(req, res) {
     })
 })
 
+
 app.get('/view/doctor/:business_id', function(req, res) {
     // TODO: lookup a doctor by a business_id
-    var doctor = doctors[0]
+    var object={'business_id': req.param("business_id")}
+    var doctor = _.find(doctors, object)
     res.render('viewDoctor.jade', {
         doctor: doctor
     })
